@@ -1,0 +1,243 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string"
+            },
+            "productName": {
+              "type": "string"
+            },
+            "productUri": {
+              "type": "string"
+            },
+            "destinationId": {
+              "type": "string"
+            },
+            "kfEarnMilesPromoText": {
+              "type": "string"
+            },
+            "keyCallouts": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "string"
+                },
+                "duration": {
+                  "type": "string"
+                },
+                "confirmation": {
+                  "type": "string"
+                },
+                "cancellation": {
+                  "type": "string"
+                },
+                "guideLanguages": {
+                  "type": "string"
+                },
+                "certified": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "link": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "link"
+                  ]
+                },
+                "groupSize": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "address",
+                "duration",
+                "confirmation",
+                "cancellation",
+                "guideLanguages",
+                "certified",
+                "groupSize"
+              ]
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "neighborhood": {
+                  "type": "string"
+                },
+                "placeId": {
+                  "type": "string"
+                },
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "mapUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "neighborhood",
+                "placeId",
+                "latitude",
+                "longitude",
+                "address",
+                "mapUrl"
+              ]
+            },
+            "shortDescription": {
+              "type": "string"
+            },
+            "mediaData": {
+              "type": "array"
+            },
+            "productTags": {
+              "type": "array"
+            },
+            "currency": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "string"
+            },
+            "guideLanguages": {
+              "type": "string"
+            },
+            "cancellationType": {
+              "type": "string"
+            },
+            "cancellationWindow": {
+              "type": "integer"
+            },
+            "cancellationWindowText": {
+              "type": "string"
+            },
+            "minGroupSize": {
+              "type": "null"
+            },
+            "maxGroupSize": {
+              "type": "null"
+            },
+            "openDateTicket": {
+              "type": "boolean"
+            },
+            "collectPhysicalTicket": {
+              "type": "boolean"
+            },
+            "confirmationType": {
+              "type": "string"
+            },
+            "confirmationTypeText": {
+              "type": "string"
+            },
+            "voucherType": {
+              "type": "string"
+            },
+            "redemptionType": {
+              "type": "string"
+            },
+            "priceRangeFrom": {
+              "type": "number"
+            },
+            "priceRangeTo": {
+              "type": "number"
+            },
+            "latitude": {
+              "type": "null"
+            },
+            "longitude": {
+              "type": "null"
+            },
+            "address": {
+              "type": "null"
+            },
+            "availabilityStartDate": {
+              "type": "string"
+            },
+            "availabilityEndDate": {
+              "type": "string"
+            },
+            "productMetaView": {
+              "type": "null"
+            },
+            "status": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "number"
+            },
+            "reviewCount": {
+              "type": "integer"
+            },
+            "trackMeta": {
+              "type": "object"
+            },
+            "wishlistedCustomerCount": {
+              "type": "integer"
+            },
+            "__typename": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "productId",
+            "productName",
+            "productUri",
+            "destinationId",
+            "kfEarnMilesPromoText",
+            "shortDescription",
+            "currency",
+            "duration",
+            "guideLanguages",
+            "cancellationType",
+            "cancellationWindow",
+            "cancellationWindowText",
+            "minGroupSize",
+            "maxGroupSize",
+            "openDateTicket",
+            "collectPhysicalTicket",
+            "confirmationType",
+            "confirmationTypeText",
+            "voucherType",
+            "redemptionType",
+            "priceRangeFrom",
+            "priceRangeTo",
+            "latitude",
+            "longitude",
+            "address",
+            "availabilityStartDate",
+            "availabilityEndDate",
+            "productMetaView",
+            "status",
+            "rating",
+            "reviewCount",
+            "trackMeta",
+            "wishlistedCustomerCount",
+            "__typename"
+          ]
+        }
+      },
+      "required": [
+        "product"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}
