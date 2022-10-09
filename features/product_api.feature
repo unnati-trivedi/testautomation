@@ -1,7 +1,7 @@
 @feature-product
 Feature: Product GraphQL Tests
 
-    @scenario-product @test
+    @scenario-product
     Scenario Outline: Valid GraphQL Request with Valid Product ID Arguments
         Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
         When I am sending "POST" Request with "valid" payload and valid Product IDs <productId>
@@ -12,7 +12,16 @@ Feature: Product GraphQL Tests
             | productId |
             | phpv2     |
 
-    @scenario-product @test
+    @scenario-product
+    Scenario Outline: API Response Time should not more than defined SLA ( 5 Seconds )
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product IDs <productId>
+        Then I expect API response time should be less than "5" seconds 
+        Examples:
+            | productId |
+            | phpv2     |
+
+    @scenario-product
     Scenario Outline: Valid GraphQL Request with Non-Existing Product ID Arguments
         Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
         When I am sending "POST" Request with "valid" payload and non-existing Product IDs <productId>

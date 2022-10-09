@@ -8,15 +8,12 @@ class APIUtility:
     self.response_code = 0
     self.responseJson = {}
     self.responseHeader = {}
-
-  def printall(self):
-    print("Hello my name is " + self.base_url)
-    print("Hello my name is " + self.response_code)
-    print("Hello my name is " + self.responseJson)
+    self.responseTime = 0
   
   def post_request(self, payload):
     post_url = self.base_url
     response = requests.post(url=self.base_url, json={"query": payload})
+    self.responseTime = response.elapsed.total_seconds()
     self.response_code = response.status_code
     self.responseJson = response.json()
     self.responseHeader = response.headers

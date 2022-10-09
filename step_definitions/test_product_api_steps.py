@@ -262,9 +262,11 @@ def validate_response_parameter_value_is_positive_negative(field, parentField):
 def dependent_field_value_check(field,minFieldValue,maxFieldValue):   
     assert utilsObj.getResponseJsonKeyValue(apiutilsObj.responseJson,field) > minFieldValue
     assert utilsObj.getResponseJsonKeyValue(apiutilsObj.responseJson,field) < maxFieldValue
+# 
 
-    
-
+@then(parsers.parse('I expect API response time should be less than "{sla}" seconds'))
+def validate_response_time(sla):   
+    assert apiutilsObj.responseTime <= int(sla)
 
 
     
