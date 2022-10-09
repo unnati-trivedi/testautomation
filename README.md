@@ -32,7 +32,7 @@ _All the above mentioned required considerations have been implemented in this f
   - Tests API response Schema for API to have expected response schema, with all required keys and expected key types
   - Tests API response headers
   - Tests API response content
-  - Tests individual response parameters to have expected values, it falls expected value range, positive/negative type, and i
+  - Tests individual response parameters to have expected values, it falls expected value range, positive/negative type
   - Tests individual response parameters of links/url type it validates there are no broken links and correct path are set 
   - Tests for validity of longitude and latitude fields
 
