@@ -135,69 +135,86 @@ Make use of the following in commandline:
 ## Output
 
 ```
-Feature: Product Browsing
-    Scenario: Valid POST Request with Valid existing product ID
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product IDs phpv2
+================================================= test session starts =================================================
+platform win32 -- Python 3.9.6, pytest-7.1.3, pluggy-1.0.0 -- c:\tests\myenv\scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Tests\testautomation, configfile: pytest.ini
+plugins: bdd-6.0.1, forked-1.4.0, xdist-2.5.0
+collected 24 items
+
+step_definitions/test_product_api_steps.py::test_valid_graphql_request_with_valid_product_id_arguments[phpv2] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Valid GraphQL Request with Valid Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product IDs phpv2
         Then results are shown with success "200"
         And I expect response body of this request to be NON-EMPTY with "product" details
         And I expect API response "productId" to have correct value as phpv2
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_nonexisting_product_id[UNREAL] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with non-existing product ID
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product IDs UNREAL
+step_definitions/test_product_api_steps.py::test_api_response_time_should_not_more_than_defined_sla__5_seconds_[phpv2] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: API Response Time should not more than defined SLA ( 5 Seconds )
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product IDs phpv2
+        Then I expect API response time should be less than "5" seconds
+    PASSED
+
+
+step_definitions/test_product_api_steps.py::test_valid_graphql_request_with_nonexisting_product_id_arguments[UNREAL] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Valid GraphQL Request with Non-Existing Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and non-existing Product IDs UNREAL
         Then results are shown with success "200"
         And I expect response body of this request to be EMPTY with no "product" details
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_nonexisting_product_id[123456] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with non-existing product ID
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product IDs 123456
+step_definitions/test_product_api_steps.py::test_valid_graphql_request_with_nonexisting_product_id_arguments[123456] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Valid GraphQL Request with Non-Existing Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and non-existing Product IDs 123456
         Then results are shown with success "200"
         And I expect response body of this request to be EMPTY with no "product" details
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_empty_product_id <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with EMPTY product ID
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with blank Product ID " "
+step_definitions/test_product_api_steps.py::test_valid_graphql_request_with_nonexisting_empty_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Valid GraphQL Request with Non-Existing EMPTY Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and blank Product ID " "
         Then results are shown with success "200"
         And I expect response body of this request to be EMPTY with no "product" details
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_invalid_payload <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with INVALID payload
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with "invalid" payload and "INCORRECTFIELD"
+step_definitions/test_product_api_steps.py::test_invalid_graphql_request_with_nonexisting_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Invalid GraphQL Request with Non-Existing Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "invalid" payload and "INCORRECTFIELD"
         Then results are shown with error code "400" and with proper error message describing error in "INCORRECTFIELD"
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_valid_existing_product_id_should_return_correct_response_schema <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with Valid existing product ID should return Correct Response Schema
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_schema_with_valid_graphql_request_having_valid_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Schema with Valid GraphQL Request having Valid Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response content to have Correct Json Schema
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_valid_existing_product_id_should_return_correct_response_headers <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with Valid existing product ID should return Correct Response Headers
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_correct_response_headers_with_valid_graphql_request_having_valid_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Correct Response Headers with Valid GraphQL Request having Valid Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response to have Correct Response headers
         And I expect API Response Header is Valid Json
         And I expect "Connection" API Response Header exists in API Response
@@ -208,22 +225,20 @@ Feature: Product Browsing
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_valid_existing_product_id_should_return_expected_response_parameters <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py <class 'str'>
-<class 'str'>
-
-Feature: Product Browsing
-    Scenario: Valid POST Request with Valid existing product ID should return expected response parameters
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_response_parameters_values_with_valid_graphql_request_having_valid_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Response Parameters values with Valid GraphQL Request having Valid Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response "duration" to have correct value "2 - 3 Hours"
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_valid_post_request_with_valid_existing_product_id_should_have_response_param_values_from_valid_value_range <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Valid POST Request with Valid existing product ID should have response param values from VALID Value range
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_response_parameter_values_are_in_expected_range_with_valid_graphql_request_having_valid_product_id_arguments <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Response parameter values are in expected range with Valid GraphQL Request having Valid Product ID Arguments
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response "cancellationType" to be one of these "NO_CANCELLATION OR  OR ALLOWED_CANCELLATION OR CONDITIONAL_CANCELLATION"
         And I expect API response "destinationId" to be one of these "singapore OR india"
         And I expect API response "confirmationType" to be one of these "MANUAL OR AUTOMATED"
@@ -231,152 +246,152 @@ Feature: Product Browsing
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_cancellation_window_checks <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Cancellation Window checks
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_cancellation_related_fields_to_have_correct_values_based_on_the_cancellation_type <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Cancellation related fields to have correct values based on the Cancellation Type
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then For Product that has "cancellationType" set to "NO_CANCELLATION", I expect API response "cancellationWindow" to be "0"
         Then For Product that has "cancellationType" set to "NO_CANCELLATION", I expect API response "cancellationWindowText" to show "No Cancellation Allowed"
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_price_range_tests <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Price Range Tests
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_response_parameter_price_range <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Response Parameter Price Range
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response "priceRangeFrom" to be "positive" number
         And I expect API response "priceRangeTo" to be greater than "priceRangeFrom"
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[xsmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[xsmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file xsmall path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all xsmall included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[webpXsmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[webpXsmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file webpXsmall path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all webpXsmall included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[small] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[small] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file small path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all small included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[webpSmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[webpSmall] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file webpSmall path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all webpSmall included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[medium] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[medium] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file medium path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all medium included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[webpMedium] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[webpMedium] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file webpMedium path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all webpMedium included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[large] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[large] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file large path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all large included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[webpLarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[webpLarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file webpLarge path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all webpLarge included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[xlarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[xlarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file xlarge path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all xlarge included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_media_data_images_should_have_correct_path_and_image_references[webpXlarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Media Data Images Should have correct path and image references
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_media_data_images_should_have_correct_links_and_image_references[webpXlarge] <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Media Data Images Should have correct links and image references
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expected All Products with "destinationId" set to "singapore" to have Media Data file webpXlarge path under "https://traveller.dev.pelago.co/img/products/SG-Singapore/"
         And I expect Media Data files to have all webpXlarge included with correct sizepath set for each
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_longitude_latitude <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: Longitude Latitude
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_longitude_latitude_fields_are_returning_valid_value <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate Longitude Latitude fields are returning valid value
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response parameter "location" to have VALID "latitude" and "longitude"
     PASSED
 
 
-step_definitions/test_product_api_steps.py::test_no_broken_links <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
-Feature: Product Browsing
-    Scenario: No Broken Links
-        Given I set POST endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
-        When I am sending POST Request with valid Product ID "phpv2"
+step_definitions/test_product_api_steps.py::test_validate_url_fields_has_no_broken_links <- ..\myenv\lib\site-packages\pytest_bdd\scenario.py
+Feature: Product GraphQL Tests
+    Scenario: Validate URL fields has No Broken Links
+        Given I have set API request endpoint to "https://traveller-core.dev.pelago.co/graphql" for getting product details
+        When I am sending "POST" Request with "valid" payload and valid Product ID "phpv2"
         Then I expect API response parameter "mapUrl" under "location" to have no broken links
         And I expect API response parameter "url" under "mediaData" to have no broken links
     PASSED
 
 
-================================================================================================= Report Summary =================================================================================================
-Total Test Duration: 11.50 seconds
-Total Tests Collected: 23
+=================================================== Report Summary ====================================================
+Total Test Duration: 11.06 seconds
+Total Tests Collected: 24
 Deselected Tests: 0
-Passed Count: 23
+Passed Count: 24
 Failed Count: 0
-============================================================================================= End of Report Summary ==============================================================================================
-============================================================================================== 23 passed in 11.53s ===============================================================================================
+================================================ End of Report Summary ================================================
+================================================= 24 passed in 11.06s =================================================
 
 ```
