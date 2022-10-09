@@ -1,41 +1,55 @@
 # GraphQL API Test Automation
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..
+This is an automation framework to test the given GraphQL Apis.
 
 
 
 ## Explanation
 
 ### The Problem
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..
+The given problem was to write test automation for the mentioned GraphQL based API. While writing it was required to consider Behaviour Driven Development Methodology for tests.
 
 ### The Solution
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..
+As a solution I developed this test automation framework that raise GraphQL API request and start testing the response and values. This solution is following the Behavior Driven Development (BDD) method for writing and executing tests. The test definitaions mentioned in the feature files and that will act as an input and the whole framework.
 
-
-
+**All Considerations**
+- ✅ Mention all tests 
+- ✅ Follow BDD
+- ✅ Tests must be runnable from commandline
+- ✅ Should be configurable on various OS
+- ✅ Parallel execution of tests
+- ✅ Detailed instructions to run each test case
 
 ## Features
-- THis is a sample feature line 
-- THis is a sample feature line 
-- THis is a sample feature line 
-- THis is a sample feature line 
-- THis is a sample feature line 
+- Test API calls
+- Tests response Schema
+- Tests API response
+- Validate value - ranges, type and expected output
+- Validate URLs
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 ## Technology & Tools
 
+For this solution I've used following technologies.
+
 | Technology/tools | Details |
 | ------ | ------ |
-| Python | Explain why used python |
-| requests | Explain |
-| pytest | Explain |
-| pytest-bdd | Explain |
+| Python | I think we can easily build this kind of solution in other languages as well like Javascript, Java, etc. However, I had to choose one. I was comfortable with Python and I have experience in developing tests in python in past so I chose Python for now. I am also comfortable to write similar tests in other tech as well.  |
+| requests | For HTTP based requirements, This is one of the popular lib that is being used by everyone generally. This is also one of the reliable libs in python. |
+| pytest | For testing purpose, to execute assertion|
+| pytest-bdd | This lib provides a good help in building BDD scenarios and execute them with pytest|
+
+you can checkout the full list of libs used in the project from requirements.txt
 
 ### Explain BDD implementation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+As we all know, Behaviour Driven Development (BDD) is one of the useful techniques to be followed for developing software and writing automations. By design this technique is very much useful for technical people like developers and testers, also, it is easy for communicating the same with non-technical audiences like product teams and business participants.
+
+_Here, I developed this solution using BDD and it is implemented as following:_
+- Feature file has a natural language format describing the feature or part of the feature with expected outcomes.
+- Each feature contains scenarios, that explains the specific scenario to test
+- Using **Given, When, Then, and And**, explains the step by step behaviour of the system and develop a test case with expected output
+
 
 #### BDD Example implemented
 ```
@@ -85,16 +99,27 @@ pip install -r requirements.txt
 #### Run Tests
 
 **Running all tests**
+in ~/testautomation
 ```sh
-cd testautomation
 pytest --gherkin-terminal-reporter -vv
 ```
 
 **Running tests with tags from [`regression`,`smoke`]**
+in ~/testautomation
 ```sh
-cd testautomation
 pytest --gherkin-terminal-reporter -vv -m regression
 ```
+
+**Running all tests in parallel**
+in ~/testautomation
+```sh
+pytest -n 2 -vv
+```
+
+Make use of the following in commandline: 
+- `-n 2` or `-n <concurrent number>` if you want to run things in parallel.
+- `--gherkin-terminal-reporter` for gherrkin fromatted output
+- `-m <tag>` or `-m regression` to run tests only which are defined for `regression`
 
 
 ## Output
