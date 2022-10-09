@@ -121,10 +121,10 @@ in ~/testautomation
 pytest --gherkin-terminal-reporter -vv
 ```
 
-**Running tests with tags from [`regression`,`smoke`]**
+**Running tests with tags from [`feature-product`,`scenario-product`, `scenario-product-responseheaderchecks`, `scenario-product-response-valuechecks` ]**
 in ~/testautomation
 ```sh
-pytest --gherkin-terminal-reporter -vv -m regression
+pytest --gherkin-terminal-reporter -vv -m feature-product
 ```
 
 **Running all tests in parallel**
