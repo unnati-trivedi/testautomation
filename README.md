@@ -6,25 +6,35 @@ This is an automation framework to test the given GraphQL Apis.
 ## Explanation
 
 ### The Problem
-The given problem was to write test automation for the mentioned GraphQL based API. While writing it was required to consider Behaviour Driven Development Methodology for tests.
+The given problem was to write api tests automation for Travel Product that uses the mentioned GraphQL based API. 
+
+##### All Required Considerations
+Tests should support below mentioned requirements:
+- ✅ Tests must be runnable from commandline 
+- ✅ Parallel execution of tests
+- ✅ Configurable on various OS
+- ✅ Follow BDD
+- ✅ Detailed instructions to run each tests
+
 
 ### The Solution
-As a solution I developed this test automation framework that raise GraphQL API request and start testing the response and values. This solution is following the Behavior Driven Development (BDD) method for writing and executing tests. The test definitaions mentioned in the feature files and that will act as an input and the whole framework.
+As a solution I developed this test automation framework that raise GraphQL API request that validates api responses and values for various test scenarios. This solution is following the Behavior Driven Development (BDD) method for writing and executing tests. The test definitaions mentioned in the feature files and that will act as an input to the whole framework.
 
-**All Considerations**
-- ✅ Mention all tests 
-- ✅ Follow BDD
-- ✅ Tests must be runnable from commandline
-- ✅ Should be configurable on various OS
-- ✅ Parallel execution of tests
-- ✅ Detailed instructions to run each test case
+_All the above mentioned required considerations have been implemented in this framework._
 
 ## Features
-- Test API calls
-- Tests response Schema
-- Tests API response
-- Validate value - ranges, type and expected output
-- Validate URLs
+- Tests Execution reporting
+- Filtering Tests during execution based on requirement
+- Platform independent
+- Tests Executable in parallel
+- Tests support validating various scenarios:
+  - Test API calls with valid and invalid API Request calls
+  - Tests API response Schema for API to have expected response schema, with all required keys and expected key types
+  - Tests API response headers
+  - Tests API response content
+  - Tests individual response parameters to have expected values, it falls expected value range, positive/negative type, and i
+  - Tests individual response parameters of links/url type it validates there are no broken links and correct path are set 
+  - Tests for validity of longitude and latitude fields
 
 
 
