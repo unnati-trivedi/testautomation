@@ -76,6 +76,13 @@ Feature: Product Browsing
     And I expect API Response Header “Strict-Transport-Security” to have value “max-age=31536000”
 ```
 
+## Test cases 
+Following are the test cases providing details on pre-conditions, test data, steps, and expected results:
+
+Link to Testcases : https://docs.google.com/spreadsheets/d/1zTvgwCPJzLnazwW0-iOCZYDVwpGQH607q0mDP_zGYU0/edit?usp=sharing
+
+
+
 ## How to install?
 
 #### Use virtual env
