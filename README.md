@@ -55,7 +55,7 @@ you can checkout the full list of libs used in the project from requirements.txt
 ## Solution Structure
 | Items | Details |
 | ------ | ------ |
-| features/ | Feature files used to explain the expected behaviour.  All scenarios with expected outcomes are written in simple language and it's easy to understand. |
+| features/ | Feature files used to explain the test scenarios to test the feature. All scenarios with pre-condition, test steps, and expected outcomes are written in simple language. |
 | step_definitions/ | This is where all parameterized step definitions are mentioned, they are responsible to get executed based on the test-behaviour mentioned in the Feature files.|
 | test_data/ | Schema and test data to test the actual response against the expected format is placed here.|
 | utility/ | Helper functions have been developed here|
