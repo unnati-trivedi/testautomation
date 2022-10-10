@@ -51,6 +51,16 @@ For this solution I've used following technologies.
 
 you can checkout the full list of libs used in the project from requirements.txt
 
+
+## Solution Structure
+| Items | Details |
+| ------ | ------ |
+| features/ | Feature files used to explain the expected behaviour.  All scenarios with expected outcomes are written in simple language and it's easy to understand. |
+| step_definitions/ | This is where all parameterized step definitions are mentioned, they are responsible to get executed based on the test-behaviour mentioned in the Feature files.|
+| test_data/ | Schema and test data to test the actual response against the expected format is placed here.|
+| utility/ | Helper functions have been developed here|
+
+# BDD
 ### Explain BDD implementation
 
 As we all know, Behaviour Driven Development (BDD) is one of the useful techniques to be followed for developing software and writing automations. By design this technique is very much useful for technical people like developers and testers, also, it is easy for communicating the same with non-technical audiences like product teams and business participants.
